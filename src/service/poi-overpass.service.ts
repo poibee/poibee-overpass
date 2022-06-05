@@ -16,7 +16,7 @@ export class PoiOverpassService {
   async findById(poiOsmId: OsmId): Promise<Poi> {
     const query = this.queryForOsmId(poiOsmId);
     const featureCollectionPromise = this.overpassClient.query(query);
-    return await featureCollectionPromise.then((fc) => this.featureToPoiConverter.convert(fc.features[0]));
+    return featureCollectionPromise.then((fc) => this.featureToPoiConverter.convert(fc.features[0]));
   }
 
   async findByFilter(category: string, coordinates: LatLon, distance: number): Promise<Poi[]> {
