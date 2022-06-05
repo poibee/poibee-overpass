@@ -1,0 +1,4 @@
+GET /pois?category=all&lat=52.89567455158366&lon=8.43528985977173&distance=100
+Host: localhost:3000
+
+###

@@ -1,0 +1,4 @@
+GET /pois?category=restaurant&lat=52.908&lon=8.588&distance=1000
+Host: localhost:3000
+
+###
