@@ -12,8 +12,9 @@ describe('PoisController', () => {
     sut = new PoisController(poiOverpassService);
   });
 
-  describe('findNode', () => {
-    it('should return poi of PoiOverpassService', async () => {
+  describe('finds single POI by PoiOverpassService', () => {
+
+    it('should work for a node', async () => {
       const serviceResult: Promise<Poi> = new Promise<Poi>((resolve) =>
         resolve(new Poi('poiId', null, null, null, null, null)),
       );
@@ -24,10 +25,8 @@ describe('PoisController', () => {
       expect(returnedPoi.id).toBe('poiId');
       expect(findByIdSpy).toHaveBeenCalledWith(OsmId.node('123'));
     });
-  });
 
-  describe('findWay', () => {
-    it('should return poi of PoiOverpassService', async () => {
+    it('should work for a way', async () => {
       const serviceResult: Promise<Poi> = new Promise<Poi>((resolve) =>
         resolve(new Poi('poiId', null, null, null, null, null)),
       );
@@ -38,10 +37,23 @@ describe('PoisController', () => {
       expect(returnedPoi.id).toBe('poiId');
       expect(findByIdSpy).toHaveBeenCalledWith(OsmId.way('123'));
     });
+
+    it('should work for a relation', async () => {
+      const serviceResult: Promise<Poi> = new Promise<Poi>((resolve) =>
+          resolve(new Poi('poiId', null, null, null, null, null)),
+      );
+      const findByIdSpy = jest.spyOn(poiOverpassService, 'findById').mockImplementation(() => serviceResult);
+
+      const returnedPoi = await sut.findRelation('123');
+
+      expect(returnedPoi.id).toBe('poiId');
+      expect(findByIdSpy).toHaveBeenCalledWith(OsmId.relation('123'));
+    });
   });
 
-  describe('findAll', () => {
-    it('should return pois of PoiOverpassService', async () => {
+  describe('finds multiple POIs by PoiOverpassService', () => {
+
+    it('should work', async () => {
       const serviceResult: Promise<Poi[]> = new Promise<Poi[]>((resolve) =>
         resolve([new Poi('poiId', null, null, null, null, null)]),
       );
