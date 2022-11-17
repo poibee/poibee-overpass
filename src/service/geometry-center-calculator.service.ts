@@ -7,7 +7,7 @@ const turf = require('@turf/turf');
 
 @Injectable()
 export class GeometryCenterCalculatorService {
-  center(poiFeature: Feature<Geometry, { [p: string]: any } | null>): LatLon {
+  center(poiFeature: Feature<Geometry, { [p: string]: string }>): LatLon {
     const coordinates = turf.center(poiFeature as AllGeoJSON).geometry.coordinates;
     return new LatLon(coordinates[1], coordinates[0]);
   }
