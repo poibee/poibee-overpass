@@ -10,7 +10,7 @@ describe('GeometryCenterCalculatorService', () => {
 
   describe('calculates center', () => {
     it('should work for Geometry of type Point', () => {
-      const pointFeature: Feature<Geometry, { [p: string]: any }> = {
+      const pointFeature: Feature<Geometry, { [p: string]: string }> = {
         type: 'Feature',
         properties: {},
         geometry: {
@@ -25,7 +25,7 @@ describe('GeometryCenterCalculatorService', () => {
     });
 
     it('should work for Geometry of type Polygon', () => {
-      const polygonFeature: Feature<Geometry, { [p: string]: any }> = {
+      const polygonFeature: Feature<Geometry, { [p: string]: string }> = {
         type: 'Feature',
         properties: {},
         geometry: {

@@ -8,7 +8,7 @@ describe('Poi', () => {
         amenity: 'restaurant',
         tourism: 'hotel',
         cuisine: 'german',
-      });
+      }, null);
       expect(poi.id).toEqual('way45664541');
     });
   });
