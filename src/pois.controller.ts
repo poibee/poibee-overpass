@@ -8,19 +8,19 @@ import { LatLon } from './model/lat-lon';
 export class PoisController {
   constructor(private readonly poiOverpassService: PoiOverpassService) {}
 
-  @Get('node:id')
+  @Get('node-:id')
   findNode(@Param('id') id: string): Promise<Poi> {
     const osmId = OsmId.node(id);
     return this.poiOverpassService.findById(osmId);
   }
 
-  @Get('way:id')
+  @Get('way-:id')
   findWay(@Param('id') id: string): Promise<Poi> {
     const osmId = OsmId.way(id);
     return this.poiOverpassService.findById(osmId);
   }
 
-  @Get('relation:id')
+  @Get('relation-:id')
   findRelation(@Param('id') id: string): Promise<Poi> {
     const osmId = OsmId.relation(id);
     return this.poiOverpassService.findById(osmId);
