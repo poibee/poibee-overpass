@@ -16,7 +16,7 @@ describe('PoisController', () => {
 
     it('should work for a node', async () => {
       const serviceResult: Promise<Poi> = new Promise<Poi>((resolve) =>
-        resolve(new Poi('poiId', null, null, null, null, null, null)),
+        resolve(new Poi('poiId', null, null, null, null)),
       );
       const findByIdSpy = jest.spyOn(poiOverpassService, 'findById').mockImplementation(() => serviceResult);
 
@@ -28,7 +28,7 @@ describe('PoisController', () => {
 
     it('should work for a way', async () => {
       const serviceResult: Promise<Poi> = new Promise<Poi>((resolve) =>
-        resolve(new Poi('poiId', null, null, null, null, null, null)),
+        resolve(new Poi('poiId', null, null, null, null)),
       );
       const findByIdSpy = jest.spyOn(poiOverpassService, 'findById').mockImplementation(() => serviceResult);
 
@@ -40,7 +40,7 @@ describe('PoisController', () => {
 
     it('should work for a relation', async () => {
       const serviceResult: Promise<Poi> = new Promise<Poi>((resolve) =>
-          resolve(new Poi('poiId', null, null, null, null, null, null)),
+          resolve(new Poi('poiId', null, null, null, null)),
       );
       const findByIdSpy = jest.spyOn(poiOverpassService, 'findById').mockImplementation(() => serviceResult);
 
@@ -55,7 +55,7 @@ describe('PoisController', () => {
 
     it('should work', async () => {
       const serviceResult: Promise<Poi[]> = new Promise<Poi[]>((resolve) =>
-        resolve([new Poi('poiId', null, null, null, null, null, null)]),
+        resolve([new Poi('poiId', null, null, null, null)]),
       );
       const findByIdSpy = jest.spyOn(poiOverpassService, 'findByFilter').mockImplementation(() => serviceResult);
 
