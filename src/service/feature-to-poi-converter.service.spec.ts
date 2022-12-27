@@ -38,8 +38,6 @@ describe('FeatureToPoiConverterService', () => {
       const poi = sut.convert(pointFeature, false);
 
       expect(poi.id).toEqual('node/12345678');
-      expect(poi.name).toEqual('Mjam Mjam');
-      expect(poi.website).toEqual('https://mjam.mjam');
       expect(poi.categories).toEqual(['restaurant', 'memorial']);
       expect(poi.coordinates).toEqual({ lat: 52.345, lon: 8.567 });
       expect(poi.tags).toEqual({
@@ -72,8 +70,6 @@ describe('FeatureToPoiConverterService', () => {
       const poi = sut.convert(pointFeature, true);
 
       expect(poi.id).toEqual('node/12345678');
-      expect(poi.name).toBeUndefined();
-      expect(poi.website).toBeUndefined();
       expect(poi.categories).toEqual(['all']);
       expect(poi.coordinates).toEqual({ lat: 52.345, lon: 8.567 });
       expect(poi.tags).toEqual({});

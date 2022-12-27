@@ -4,7 +4,7 @@ import { LatLon } from './lat-lon';
 describe('Poi', () => {
   describe('constructor', () => {
     it('should create Poi', () => {
-      const poi = new Poi('way45664541', 'Delicous Hotel', null, ['restaurant', 'hotel'], new LatLon(52.3, 8.6), {
+      const poi = new Poi('way45664541', ['restaurant', 'hotel'], new LatLon(52.3, 8.6), {
         amenity: 'restaurant',
         tourism: 'hotel',
         cuisine: 'german',
